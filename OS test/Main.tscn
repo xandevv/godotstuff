@@ -1,0 +1,419 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://X OS/wallpaperpurp.png" type="Texture" id=1]
+[ext_resource path="res://X OS/taskbar.png" type="Texture" id=2]
+[ext_resource path="res://X OS/Xicon.png" type="Texture" id=3]
+[ext_resource path="res://fontmenu.tres" type="DynamicFont" id=4]
+[ext_resource path="res://Main.gd" type="Script" id=5]
+[ext_resource path="res://Buttonnormal.tres" type="StyleBox" id=6]
+[ext_resource path="res://Pressed.tres" type="StyleBox" id=7]
+[ext_resource path="res://hover.tres" type="StyleBox" id=8]
+[ext_resource path="res://X OS/khmer-oureang-font/KhBaphnom08Rongdomrey-wLo8.ttf" type="DynamicFontData" id=9]
+[ext_resource path="res://X OS/Window.png" type="Texture" id=10]
+[ext_resource path="res://X OS/wallpaper.png" type="Texture" id=11]
+[ext_resource path="res://X OS/SETTINGS.png" type="Texture" id=12]
+[ext_resource path="res://X OS/STORE.png" type="Texture" id=13]
+[ext_resource path="res://Main.tres" type="StyleBox" id=14]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Startmenu"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("../taskbar/Startmenu:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -963.626, -60.6201 ), Vector2( -964, -61 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../taskbar/Startmenu:rect_size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 95, 123 ), Vector2( 124, 187 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../Camera2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 512.432, 301.466 ), Vector2( 512, -304 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "Settingsonoff"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("../Startmenu/Options:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Startmenu/Options:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../Startmenu/Options:rect_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.1, 0.1 ), Vector2( 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("../Startmenu/Options:rect_position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 500, 250 ), Vector2( 208, 128 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "transparent taskbar"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("../taskbar:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.854902, 0.843137, 0.843137, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="DynamicFont" id=4]
+font_data = ExtResource( 9 )
+
+[node name="Main" type="Node2D"]
+script = ExtResource( 5 )
+
+[node name="wallpapers" type="Node2D" parent="."]
+position = Vector2( 0, -9.53674e-07 )
+
+[node name="wallpaper" type="Sprite" parent="wallpapers"]
+position = Vector2( 512.905, 303.25 )
+scale = Vector2( 0.533333, 0.555556 )
+texture = ExtResource( 11 )
+
+[node name="wallpaperpurp" type="Sprite" parent="wallpapers"]
+visible = false
+position = Vector2( 512, 309.48 )
+scale = Vector2( 0.533333, 0.555556 )
+texture = ExtResource( 1 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 512.432, 301.466 )
+current = true
+smoothing_enabled = true
+
+[node name="taskbar" type="Sprite" parent="."]
+self_modulate = Color( 0.854902, 0.843137, 0.843137, 1 )
+position = Vector2( 512, 17.4983 )
+scale = Vector2( 0.533333, 0.416626 )
+texture = ExtResource( 2 )
+
+[node name="Startmenu" type="Button" parent="taskbar"]
+margin_left = -960.0
+margin_top = -63.0
+margin_right = -865.0
+margin_bottom = 60.0
+flat = true
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Xicon" type="Sprite" parent="taskbar/Startmenu"]
+position = Vector2( 44.0308, 71.4953 )
+scale = Vector2( 0.0786329, 0.0927868 )
+texture = ExtResource( 3 )
+
+[node name="Animtions" type="Node2D" parent="."]
+
+[node name="Startmenu" type="AnimationPlayer" parent="Animtions"]
+anims/Startmenu = SubResource( 1 )
+
+[node name="Settingsonoff" type="AnimationPlayer" parent="Animtions"]
+anims/Settingsonoff = SubResource( 2 )
+
+[node name="Settings" type="AnimationPlayer" parent="Animtions"]
+"anims/transparent taskbar" = SubResource( 3 )
+
+[node name="Startmenu" type="Node2D" parent="."]
+
+[node name="StartMenu" type="Sprite" parent="Startmenu"]
+position = Vector2( 512, -304 )
+scale = Vector2( 0.533333, 7.23214 )
+texture = ExtResource( 2 )
+
+[node name="Startmenudesk" type="Sprite" parent="Startmenu/StartMenu"]
+position = Vector2( -540, -11.3383 )
+scale = Vector2( 0.1875, 0.0168999 )
+texture = ExtResource( 11 )
+
+[node name="taskbar" type="Sprite" parent="Startmenu/StartMenu/Startmenudesk"]
+modulate = Color( 0.854902, 0.843137, 0.843137, 1 )
+position = Vector2( 0.000976563, -514.684 )
+scale = Vector2( 1, 1.3819 )
+texture = ExtResource( 2 )
+
+[node name="Desktop" type="Button" parent="Startmenu"]
+margin_left = 128.0
+margin_top = -456.0
+margin_right = 320.0
+margin_bottom = -320.0
+custom_styles/hover = ExtResource( 8 )
+custom_styles/pressed = ExtResource( 7 )
+custom_styles/focus = ExtResource( 6 )
+custom_styles/normal = ExtResource( 6 )
+custom_fonts/font = ExtResource( 4 )
+text = "Desktop"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Settings" type="Button" parent="Startmenu"]
+margin_left = 320.0
+margin_top = -456.0
+margin_right = 448.0
+margin_bottom = -320.0
+custom_styles/hover = ExtResource( 8 )
+custom_styles/pressed = ExtResource( 7 )
+custom_styles/focus = ExtResource( 6 )
+custom_styles/disabled = ExtResource( 6 )
+custom_styles/normal = ExtResource( 6 )
+custom_fonts/font = ExtResource( 4 )
+text = "Options"
+icon = ExtResource( 12 )
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Appstore2" type="Button" parent="Startmenu"]
+margin_left = 448.0
+margin_top = -456.0
+margin_right = 576.0
+margin_bottom = -320.0
+custom_styles/hover = ExtResource( 8 )
+custom_styles/pressed = ExtResource( 7 )
+custom_styles/focus = ExtResource( 6 )
+custom_styles/disabled = ExtResource( 6 )
+custom_styles/normal = ExtResource( 6 )
+custom_fonts/font = ExtResource( 4 )
+text = "Xstore"
+icon = ExtResource( 13 )
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Settings2" type="Button" parent="Startmenu"]
+margin_top = 40.0
+margin_right = 63.0
+margin_bottom = 104.0
+custom_styles/hover = ExtResource( 8 )
+custom_styles/pressed = ExtResource( 7 )
+custom_styles/focus = ExtResource( 6 )
+custom_styles/disabled = ExtResource( 6 )
+custom_styles/normal = ExtResource( 6 )
+custom_fonts/font = ExtResource( 4 )
+icon = ExtResource( 12 )
+flat = true
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Appstore" type="Button" parent="Startmenu"]
+margin_top = 112.0
+margin_right = 63.0
+margin_bottom = 176.0
+custom_styles/hover = ExtResource( 8 )
+custom_styles/pressed = ExtResource( 7 )
+custom_styles/focus = ExtResource( 6 )
+custom_styles/disabled = ExtResource( 6 )
+custom_styles/normal = ExtResource( 6 )
+custom_fonts/font = ExtResource( 4 )
+icon = ExtResource( 13 )
+flat = true
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Options" type="WindowDialog" parent="Startmenu"]
+visible = true
+self_modulate = Color( 1, 1, 1, 0 )
+margin_left = 208.0
+margin_top = 128.0
+margin_right = 808.0
+margin_bottom = 504.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Startmenu/Options"]
+margin_left = 8.0
+margin_top = -8.0
+margin_right = 592.0
+margin_bottom = 368.0
+color = Color( 0.713726, 0.713726, 0.713726, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Window" type="Sprite" parent="Startmenu/Options"]
+position = Vector2( 300.169, 179.983 )
+scale = Vector2( 0.676056, 0.654368 )
+texture = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="Startmenu/Options"]
+modulate = Color( 0, 0, 0, 1 )
+margin_top = -24.0
+margin_right = 857.0
+margin_bottom = 22.0
+rect_scale = Vector2( 0.7, 0.7 )
+custom_fonts/font = SubResource( 4 )
+text = "Options"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="closeopt" type="Button" parent="Startmenu/Options"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 586.0
+margin_top = -22.0
+margin_right = 600.0
+margin_bottom = 8.0
+custom_styles/hover = ExtResource( 8 )
+custom_styles/pressed = ExtResource( 7 )
+custom_styles/focus = ExtResource( 6 )
+custom_styles/disabled = ExtResource( 6 )
+custom_styles/normal = ExtResource( 6 )
+custom_fonts/font = ExtResource( 4 )
+text = "X"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="Startmenu/Options"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 584.0
+margin_bottom = 46.0
+custom_fonts/font = ExtResource( 4 )
+text = "Transparent Taskbar"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="Startmenu/Options"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 16.0
+margin_top = 88.0
+margin_right = 584.0
+margin_bottom = 118.0
+custom_fonts/font = ExtResource( 4 )
+text = "	PC name"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="on" type="Button" parent="Startmenu/Options"]
+margin_left = 264.0
+margin_top = 48.0
+margin_right = 296.0
+margin_bottom = 78.0
+custom_styles/hover = ExtResource( 8 )
+custom_styles/pressed = ExtResource( 7 )
+custom_styles/focus = ExtResource( 6 )
+custom_styles/disabled = ExtResource( 6 )
+custom_styles/normal = ExtResource( 14 )
+custom_fonts/font = ExtResource( 4 )
+text = "on"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="off" type="Button" parent="Startmenu/Options"]
+margin_left = 298.402
+margin_top = 48.0
+margin_right = 330.402
+margin_bottom = 78.0
+custom_styles/hover = ExtResource( 8 )
+custom_styles/pressed = ExtResource( 7 )
+custom_styles/focus = ExtResource( 6 )
+custom_styles/disabled = ExtResource( 6 )
+custom_styles/normal = ExtResource( 14 )
+custom_fonts/font = ExtResource( 4 )
+text = "off"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextEdit" type="TextEdit" parent="Startmenu/Options"]
+margin_left = 240.0
+margin_top = 112.0
+margin_right = 360.0
+margin_bottom = 152.0
+custom_styles/normal = ExtResource( 14 )
+custom_fonts/font = ExtResource( 4 )
+text = "          USER"
+[connection signal="pressed" from="taskbar/Startmenu" to="." method="_on_Startmenu_pressed"]
+[connection signal="pressed" from="Startmenu/Desktop" to="." method="_on_Desktop_pressed"]
+[connection signal="pressed" from="Startmenu/Settings" to="." method="_on_Settings_pressed"]
+[connection signal="pressed" from="Startmenu/Settings2" to="." method="_on_Settings2_pressed"]
+[connection signal="pressed" from="Startmenu/Options/closeopt" to="." method="_on_closeopt_pressed"]
+[connection signal="pressed" from="Startmenu/Options/on" to="." method="_on_on_pressed"]
+[connection signal="pressed" from="Startmenu/Options/off" to="." method="_on_off_pressed"]
